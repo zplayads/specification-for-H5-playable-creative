@@ -10,9 +10,11 @@
 
 ## 2.可玩广告形式说明
 ZPLAY的可玩广告分为两个部分，第一部分为可玩的 HTML5 部分，这一部分是可玩广告的制作者或制作公司进行开发；
-![HTML5部分](imgs/playable.png)
+<img src="imgs/playable.png" width="640" alt="可玩的 HTML 部分">
+
 第二部分为可玩广告的落地页部分，这一部分是可玩广告的广告主提供。
-![落地页部分](imgs/landingpage.png)
+<img src="imgs/landingpage.png" width="640" alt="可玩的 HTML 部分">
+
 
 ## 3.SDK提供的方法及其作用
 - #### window.PlayableAds.mediationStart()
@@ -88,7 +90,7 @@ function pauseVideoAudio(){
 }
 ```
 SDK会在合适的时机调用该方法，优化视觉和听觉效果。
-> 该方法非必须项
+> 该方法为必须项
 
 - #### resumeVideoAudio()
 在该方法中resume音频和视频播放，比如：
@@ -102,5 +104,5 @@ function resumeVideoAudio(){
 }
 ```
 SDK会在合适的时机调用该方法，优化视觉和听觉效果。
-> 该方法非必须项
+> 该方法为必须项
 
