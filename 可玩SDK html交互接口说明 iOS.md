@@ -118,6 +118,9 @@ SDK会在适当的时机调用该方法，达到自动播放的目的。
 
 - #### 游戏页 HTML 中的音乐播放器 id 要设置成 bgMusicPlayer, 以便 iOS SDK 调用 
 
-* `$('#bgMusicPlayer').get(0).pause();` 来暂停音乐播放
-* `$('#bgMusicPlayer').get(0).play();` 来恢复音乐播放
+`$('#bgMusicPlayer').get(0).pause();` 来暂停音乐播放
+
+`$('#bgMusicPlayer').get(0).play();` 来恢复音乐播放
+> 该方法为必须项。
+
 
