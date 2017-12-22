@@ -39,12 +39,12 @@ function yourFun(){
 ```
 > 该方法为必须项
 
-- #### window.PlayableAds.MediapageClose()
+- #### window.PlayableAds.closeWebView()
 落地页html检测到用户点击“关闭”按钮，发送该事件给SDK，以便SDK响应关闭activity以及其它操作。如：
 ```
 function yourFun(){
     ...
-    window.PlayableAds.MediapageClose()
+    window.PlayableAds.closeWebView()
     ...
 }
 ```
