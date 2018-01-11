@@ -9,10 +9,10 @@
 
 ## 2.可玩广告形式说明
 ZPLAY的可玩广告分为两个部分，第一部分为可玩的 HTML5 部分，这一部分是可玩广告的制作者或制作公司进行开发；
-<img src="imgs/playable.png" width="640" alt="可玩的 HTML 部分">
+<img src="imgs/playable.png" width="640" alt="可玩的 游戏 部分">
 
 第二部分为可玩广告的落地页部分，这一部分是可玩广告的广告主提供。
-<img src="imgs/landingpage.png" width="640" alt="可玩的 HTML 部分">
+<img src="imgs/landingpage.png" width="640" alt="可玩的 落地页 部分">
 
 
 ## 3.SDK提供的方法及其作用
@@ -70,7 +70,7 @@ function yourFun(){
     ...
 }
 ```
-> 该方法为非须项，仅在 HTML 中包含关闭按钮的时候使用，与 landingPage 的关闭方法功能相同，但名称不同
+> 该方法为非必须项，仅在 HTML 中包含关闭按钮的时候使用，与 landingPage 的关闭方法功能相同，但名称不同
 
 - #### window.webkit.messageHandlers.landingPage.postMessage("close");
 落地页HTML检测到用户点击“关闭”按钮，发送该事件给SDK，以便SDK响应关闭activity以及其它操作。如：
