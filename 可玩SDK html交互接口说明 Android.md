@@ -10,10 +10,10 @@
 
 ## 2.可玩广告形式说明
 ZPLAY的可玩广告分为两个部分，第一部分为可玩的 HTML5 部分，这一部分是可玩广告的制作者或制作公司进行开发；
-<img src="imgs/playable.png" width="640" alt="可玩的 HTML 部分">
+<img src="imgs/playable.png" width="640" alt="可玩的 游戏 部分">
 
 第二部分为可玩广告的落地页部分，这一部分是可玩广告的广告主提供。
-<img src="imgs/landingpage.png" width="640" alt="可玩的 HTML 部分">
+<img src="imgs/landingpage.png" width="640" alt="可玩的 落地页 部分">
 
 
 ## 3.SDK提供的方法及其作用
