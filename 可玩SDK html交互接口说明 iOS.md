@@ -116,11 +116,15 @@ SDK会在适当的时机调用该方法，达到自动播放的目的。
 游戏页 HTML 添加 setSDKVersionNumber(versionNumber) 方法, 接收版本号, 以便游戏页 HTML 做向前兼容的操作。
 > 该方法非必须项。
 
-- #### 游戏页 HTML 中的音乐播放器 id 要设置成 bgMusicPlayer, 以便 iOS SDK 调用 
+- #### pauseVideoAudio()
+暂停游戏，包括游戏中的音视频
+> 该方法非必须项。
 
-`$('#bgMusicPlayer').get(0).pause();` 来暂停音乐播放
-
-`$('#bgMusicPlayer').get(0).play();` 来恢复音乐播放
+- #### resumeVideoAudio()
+恢复游戏，包括游戏中的音视频
 > 该方法为必须项。
+
+- #### muteSound(false/true)
+是否静音所有音视频，如果你使用的WebView为WKWebView，则必需实现该方法，在此方法中静音所有音频。原因WKWebView对iPhone的静音键不敏感，SDK监听到静音键状态改变时会主动调用该方法。
 
 

@@ -63,7 +63,7 @@ function yourFun(){
 
 ## 4.HTML/JS 需要提供的方法及其原因
 - #### startAd()
-由于设备限制，自Android 5.0以后，webview不能自动播放视频元素，所以在webview加载完毕后手动调用播放视频。游戏页html添加startAd()方法，方法中实现播放视频的逻辑，如：
+SDK会在合适的时机去播放广告。游戏页html添加startAd()方法，方法中实现播放视频的逻辑，如：
 ```
 function startAd(){
     var video = document.getElementById('your-video-id');
