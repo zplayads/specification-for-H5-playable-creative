@@ -96,7 +96,7 @@ function yourFun(){
 
 ## 4.HTML/JS需要提供的方法及其原因
 - #### startAd()
-游戏页HTML添加startAd()方法，方法中实现游戏开始的逻辑，如:
+SDK会在适当的时机调用该方法，达到广告打开的目的。如:
 ```js
 function startAd(){
     var video = document.getElementById('your-video-id');
@@ -108,7 +108,6 @@ function startAd(){
     audio.play();
 }
 ```
-SDK会在适当的时机调用该方法，达到广告打开的目的。
 > 该方法为必须项
 
 - #### setSDKVersionNumber(versionNumber)
