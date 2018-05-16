@@ -51,7 +51,7 @@ function yourFun(){
 > 该方法为必须项
 
 - #### window.PlayableAds.goInstallApp()
-落地页html检测到用户点击“下载应用”按钮时，发送该事件给SDK，SDK会自动到google play或直接下载apk文件，安装并打开。如：
+落地页html检测到用户点击“下载应用”按钮时，发送该事件给SDK，SDK会自动到google play或直接下载和安装apk文件。如：
 ```
 function yourFun(){
     ...
