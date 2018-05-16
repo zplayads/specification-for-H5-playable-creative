@@ -39,12 +39,12 @@ function yourFun(){
 ```
 > This method is necessary
 
-- #### window.PlayableAds.MediapageClose()
+- #### window.PlayableAds.closeWebView()
 When the HTML of landing page detects that users click “close” button, this event should be sent to SDK in order to close the activity action and take other actions accordingly.
 ```
 function yourFun(){
     ...
-    window.PlayableAds.MediapageClose()
+    window.PlayableAds.CloseWebView()
     ...
 }
 ```
