@@ -18,7 +18,7 @@ The second part is landing page of playable ads. This part will be provided by a
 
 ## 3.The methods provided by SDK，and their functions
 - #### window.PlayableAds.mediationStart()
-This method should be called in order to inform SDK about a video is played when the HTML of game page detects that the video starts to play. For example:
+This method should be called in order to inform SDK about the ad is played when the HTML of game page detects that the game starts to play. For example:
 ```
 function yourFun(){
     ...
@@ -29,7 +29,7 @@ function yourFun(){
 > This method is necessary
 
 - #### window.PlayableAds.mediationEnd()
-This method should be called in order to inform SDK a video is completed, when the HTML of game page detects that the video is over. For example:
+This method should be called in order to inform SDK a ads is completed, when the HTML of game page detects that the game finishes. For example:
 ```
 function yourFun(){
     ...
@@ -39,19 +39,19 @@ function yourFun(){
 ```
 > This method is necessary
 
-- #### window.PlayableAds.MediapageClose()
-When the HTML of landing page detects that users click “close” button, the event should be sent to SDK in order to close the activity action and take other actions accordingly.
+- #### window.PlayableAds.closeWebView()
+When the HTML of landing page detects that users click “close” button, this event should be sent to SDK in order to close the activity action and take other actions accordingly.
 ```
 function yourFun(){
     ...
-    window.PlayableAds.MediapageClose()
+    window.PlayableAds.CloseWebView()
     ...
 }
 ```
 > This method is necessary
 
 - #### window.PlayableAds.goInstallApp()
-When HTML of landing page detects that users click “download app” button, the event should be sent to SDK. SDK will launch Google Play or start to download, install and open the APK file automatically. For example: 
+When HTML of landing page detects that users click “download app” button, the event should be sent to SDK. SDK will launch Google Play or start to download, install the APK file. For example: 
 ```
 function yourFun(){
     ...
@@ -63,7 +63,7 @@ function yourFun(){
 
 ## 4.The meaning and necessity of methods provided by HTML/JS
 - #### startAd()
-Due to the limitation of device, the webview is not allowed to play video elements automatically after Android 5.0. Therefore, to play the video, manually control is required after the webview finishes loading. HTML of game page should be added with startAd() method, in which the logic of video play is implemented. For example:
+SDK will call this method accordingly in order to start ads:
 ```
 function startAd(){
     var video = document.getElementById('your-video-id');
@@ -75,11 +75,10 @@ function startAd(){
     audio.play();
 }
 ``` 
-SDK will call this method accordingly in order to play videos automatically. 
 > This method is necessary
 
 - #### pauseVideoAudio()
-Pause the audio and video, for example:
+Pause the audio and video which are in game, for example:
 ```
 function pauseVideoAudio(){
     var video = document.getElementById('your-video-id');
@@ -93,7 +92,7 @@ SDK will call this method accordingly to optimize the visual and auditory effect
 > This method is necessary
 
 - #### resumeVideoAudio()
-Resume audio and video in this method, for example:
+Resume audio and video which are in game, for example:
 ```
 function resumeVideoAudio(){
     var video = document.getElementById('your-video-id');
