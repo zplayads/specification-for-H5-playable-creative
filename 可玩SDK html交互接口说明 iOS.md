@@ -16,6 +16,16 @@ ZPLAY的可玩广告分为两个部分，第一部分为可玩的 HTML5 部分�
 
 
 ## 3.SDK提供的方法及其作用
+- #### window.webkit.messageHandlers.video.postMessage("video_did_end_loading");
+游戏页 HTML 检测到游戏加载完成时, 调用该方法通知 SDK 游戏 HTML 加载完成. 如:
+```js
+function yourFun(){
+    ...
+    window.webkit.messageHandlers.video.postMessage("video_did_end_loading");
+    ...
+}
+```
+> 该方法为必须项
 - #### window.webkit.messageHandlers.video.postMessage("video_did_start_playing");
 游戏页HTML检测到游戏开始时，调用该方法通知SDK广告开始。如：
 ```js
@@ -33,17 +43,6 @@ function yourFun(){
 function yourFun(){
     ...
     window.webkit.messageHandlers.video.postMessage("video_did_end_playing");
-    ...
-}
-```
-> 该方法为必须项
-
-- #### window.webkit.messageHandlers.video.postMessage("video_did_end_loading");
-游戏页 HTML 检测到游戏加载完成时, 调用该方法通知 SDK 游戏 HTML 加载完成. 如:
-```js
-function yourFun(){
-    ...
-    window.webkit.messageHandlers.video.postMessage("video_did_end_loading");
     ...
 }
 ```
@@ -73,7 +72,7 @@ function yourFun(){
 > 该方法为非必须项，仅在 HTML 中包含关闭按钮的时候使用，与 landingPage 的关闭方法功能相同，但名称不同
 
 - #### window.webkit.messageHandlers.landingPage.postMessage("close");
-落地页HTML检测到用户点击“关闭”按钮，发送该事件给SDK，以便SDK响应关闭activity以及其它操作。如：
+落地页HTML检测到用户点击“关闭”按钮，发送该事件给SDK，以便SDK响应关闭ViewController以及其它操作。如：
 ```
 function yourFun(){
     ...
@@ -84,7 +83,7 @@ function yourFun(){
 > 该方法为必须项
 
 - #### window.webkit.messageHandlers.landingPage.postMessage("click");
-落地页HTML检测到用户点击“下载应用”按钮时，发送该事件给SDK，SDK会打开 App Store。如：
+落地页HTML检测到用户点击“下载应用”按钮时，发送该事件给SDK，SDK去执行打开App Store的操作。如：
 ```js
 function yourFun(){
     ...
@@ -112,7 +111,7 @@ function startAd(){
 
 - #### setSDKVersionNumber(versionNumber)
 
-游戏页 HTML 添加 setSDKVersionNumber(versionNumber) 方法, 接收版本号, 以便游戏页 HTML 做向前兼容的操作。
+游戏页 HTML 添加 setSDKVersionNumber("versionNumber") 方法, 接收版本号, 以便游戏页 HTML 做向前兼容的操作。
 > 该方法非必须项。
 
 - #### pauseVideoAudio()
