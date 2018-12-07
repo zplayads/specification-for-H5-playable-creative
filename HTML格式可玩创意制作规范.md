@@ -180,7 +180,7 @@ function yourFun(){
 
 #### 3.5.2 当设备是Android时
 
-- **setAndroidVersion(versionNumber)**
+- **setAndroidVersion("versionNumber")**
 
 > 该方法非必须项。
 

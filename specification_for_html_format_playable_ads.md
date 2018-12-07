@@ -180,7 +180,7 @@ function yourFun(){
 
 #### 3.5.2 on Android device
 
-- **setAndroidVersion(versionNumber)**
+- **setAndroidVersion("versionNumber")**
 
 > This method is optional
 
