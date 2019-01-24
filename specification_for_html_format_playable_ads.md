@@ -1,14 +1,12 @@
 # Specification for HTML Format Playable Ads
 
 - [Specification for HTML Format Playable Ads](#specification-for-html-format-playable-ads)
-    - [1. Abstract](#1-abstract)
-    - [2. Before development](#2-before-development)
-    - [3. Specifications](#3-specifications)
-        - [3.1 on iOS device](#31-on-ios-device)
-        - [3.2 on Android device](#32-on-android-device)
-    - [4. test your HTML5 creative though using testing tool](#4-test-your-html5-creative-though-using-testing-tool)
-        - [4.1 testing tool for iOS device](#41-testing-tool-for-ios-device)
-        - [4.2 testing tool for Android device](#42-testing-tool-for-android-device)
+  - [1. Abstract](#1-abstract)
+  - [2. Before development](#2-before-development)
+  - [3. Specifications](#3-specifications)
+  - [4. test your HTML5 creative though using testing tool](#4-test-your-html5-creative-though-using-testing-tool)
+    - [4.1 testing tool for iOS device](#41-testing-tool-for-ios-device)
+    - [4.2 testing tool for Android device](#42-testing-tool-for-android-device)
 
 ## 1. Abstract
 
@@ -20,41 +18,28 @@ This documentation is for the advertiser who displays HTML5 format playable crea
 
 - We will take charge of the close button and close function for each playable creative, so you must not add close button in your HTML file.
 
-- The install button needs be made by you. when users tap the install button, you need pass us a method that "user_did_tap_install" with iOS device and "goInstallApp" with Android device.
+- The install button needs be made by you. when users tap the install button, HTML must call method `window.openStoreUrl()`, iOS and Android can use the same method, please refer to the third part to get more details.
+- Playable creative should be single HTML file, all resources must be included locally within the creative. JavaScript, CSS, image, audio can included in this file, must be encoded as string by base 64.
+- Playable creative should not use external resource.
+- Playable creative can use responsive design to fit different device.
+- Playable creative should not include re-target.
+- Playable creative should not use external links.
 
 ## 3. Specifications
 
-> the only method that is needed to use in your HTML5 creatives is the method that open the store within traffic apps when user taps the click button.
+> Playable creative should call install function to open the store when user click install button, you can use either of the following two method
 
-### 3.1 on iOS device
-
-- **window.webkit.messageHandlers.video.postMessage("user_did_tap_install")**
-  When install button is be clicked, call this method to inform SDK. For example:
-
-```js
-function yourFun(){
-    ...
-    window.webkit.messageHandlers.video.postMessage("user_did_tap_install");
-    ...
-}
+3.1 Call this method in your JS code
+```JS
+window.openStoreUrl()
 ```
 
-> This method is necessary
-
-### 3.2 on Android device
-
-- **window.PlayableAds.goInstallApp()**
-  When install button is be clicked, call this method to inform SDK. For example:
-
+3.2 Execute the following JS, using standard anchor tags
 ```js
-function yourFun(){
-    ...
-    window.PlayableAds.goInstallApp()
-    ...
-}
+...
+<a onclick="openStoreUrl()">download</a>
+...
 ```
-
-> This method is necessary
 
 ## 4. test your HTML5 creative though using testing tool
 

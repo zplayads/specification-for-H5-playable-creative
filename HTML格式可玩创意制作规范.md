@@ -1,14 +1,12 @@
 # HTML格式可玩创意制作规范
 
 - [HTML格式可玩创意制作规范](#html%E6%A0%BC%E5%BC%8F%E5%8F%AF%E7%8E%A9%E5%88%9B%E6%84%8F%E5%88%B6%E4%BD%9C%E8%A7%84%E8%8C%83)
-    - [1. 概要](#1-%E6%A6%82%E8%A6%81)
-    - [2. 对接前须知](#2-%E5%AF%B9%E6%8E%A5%E5%89%8D%E9%A1%BB%E7%9F%A5)
-    - [3. 需要在HTML中使用的方法及其作用](#3-%E9%9C%80%E8%A6%81%E5%9C%A8html%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8)
-        - [3.1 当设备是iOS时](#31-%E5%BD%93%E8%AE%BE%E5%A4%87%E6%98%AFios%E6%97%B6)
-        - [3.2 当设备是Android时](#32-%E5%BD%93%E8%AE%BE%E5%A4%87%E6%98%AFandroid%E6%97%B6)
-    - [4. 使用测试工具测试您的广告](#4-%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%B5%8B%E8%AF%95%E6%82%A8%E7%9A%84%E5%B9%BF%E5%91%8A)
-        - [4.1 iOS设备上的测试应用](#41-ios%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8)
-        - [4.2 Android设备上的测试工具](#42-android%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7)
+  - [1. 概要](#1-%E6%A6%82%E8%A6%81)
+  - [2. 对接前须知](#2-%E5%AF%B9%E6%8E%A5%E5%89%8D%E9%A1%BB%E7%9F%A5)
+  - [3. 需要在HTML中使用的方法及其作用](#3-%E9%9C%80%E8%A6%81%E5%9C%A8html%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8)
+  - [4. 使用测试工具测试您的广告](#4-%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%E6%B5%8B%E8%AF%95%E6%82%A8%E7%9A%84%E5%B9%BF%E5%91%8A)
+    - [4.1 iOS设备上的测试应用](#41-ios%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%BA%94%E7%94%A8)
+    - [4.2 Android设备上的测试工具](#42-android%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7)
 
 ## 1. 概要
 
@@ -20,41 +18,29 @@
 
 - 我们会自动的在可玩创意上增加关闭按钮，因此您不需要在HTML5 的创意中添加关闭按钮。
 
-- 你需要在HTML5 创意中制作下载按钮，并且在用户点击下载按钮的时候，调用下载方法，请注意：在iOS中，该方法是“user_did_tap_install”；在Android中，该方法是“goInstallApp”。
+- 你需要在HTML5 创意中制作下载按钮，并且在用户点击下载按钮的时候，调用下载方法`window.openStoreUrl()`，iOS 和 Android可使用同一方法，方法参考第三部分。
+ 
+- 可玩广告创意仅可以为单个HTML文件，文件中包含JavaScript、CSS、图片、声音等，元素可通过base64编码为字符串放在HTML文件中。
+- 可玩广告创意中不允许通过外部网络加载动态素材。
+- 可玩广告创意应采用响应式设计，因为它需要支持多种设备类型。
+- 可玩广告创意中不应包含任何JS重定向。
+- 可玩广告创意中不可包含任何HTTP或HTTPS请求。
 
 ## 3. 需要在HTML中使用的方法及其作用
 
-> 您仅需要在广告的下载按钮被点击时，调用点击下载方法，以便打开应用市场进行下载
+> 您需要在广告的下载按钮被点击时，请调用点击下载方法，以便打开应用市场进行下载，方法如下，使用任意一个即可：
 
-### 3.1 当设备是iOS时
-
-- **window.webkit.messageHandlers.video.postMessage("user_did_tap_install")**
-  当HTML 中的安装按钮被点击时，调用该方法通知 SDK 安装按钮被点击。 如:
-
-```js
-function yourFun(){
-    ...
-    window.webkit.messageHandlers.video.postMessage("user_did_tap_install");
-    ...
-}
+3.1 在您JS代码中调用此方法
+```JS
+window.openStoreUrl()
 ```
 
-> 该方法为必须项
-
-### 3.2 当设备是Android时
-
-- **window.PlayableAds.goInstallApp()**
-  当HTML 中的安装按钮被点击时，调用该方法通知 SDK 安装按钮被点击。如：
-
+3.2 执行以下JS，使用标准锚定标记
 ```js
-function yourFun(){
-    ...
-    window.PlayableAds.goInstallApp()
-    ...
-}
+...
+<a onclick="openStoreUrl()">点击下载</a>
+...
 ```
-
-> 该方法为必须项
 
 ## 4. 使用测试工具测试您的广告
 
